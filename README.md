@@ -1,19 +1,16 @@
 # typing-test-task
 
-## Project setup
+## Клонирование репозитория
+```
+git clone https://github.com/vvsick/typing-test-task.git
+```
+
+### Настройка проекта
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Запуск проекта для разработки
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

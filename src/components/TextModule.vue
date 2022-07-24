@@ -1,16 +1,22 @@
 <template>
-    <div class="columns m-3">
-            <div class="column">
-                <main class="tile 
-                is-child
-                main
-                box
-                is-family-code
-                has-background-white-bis"
-                ref="editor">
-                </main>
-            </div>
-        <StatsModule ref="statsModule"/>
+    <div>
+        <div class="has-text-centered" v-if="isVisible">
+            <h1 class="is-size-4">Тренажер слепой печати</h1>
+            <p>Тест начнется когда вы будете вводить текст</p>
+        </div>
+        <div class="columns m-3">
+                <div class="column">
+                    <main class="tile 
+                    is-child
+                    main
+                    box
+                    is-family-code
+                    has-background-white-bis"
+                    ref="editor">
+                    </main>
+                </div>
+            <StatsModule ref="statsModule"/>
+        </div>
     </div>
 </template>
 <script>
@@ -20,6 +26,7 @@ export default {
         text: "",
         charArray: [],
         activeCharId: 0,
+        isVisible: true
     }),
     components: {
         StatsModule
@@ -43,7 +50,7 @@ export default {
         },
 
         async get() {
-            const response = await fetch("https://fish-text.ru/get?number=1");
+            const response = await fetch("https://fish-text.ru/get?number=2");
             const result = await response.json();
             return result.text;
         },
@@ -59,6 +66,8 @@ export default {
         },
 
         keypressHandler(event) {
+            this.isVisible = false;
+
             const statsModule = this.$refs.statsModule;
 
             if (!statsModule.isActive) {
@@ -81,7 +90,7 @@ export default {
 
                 if (this.activeCharId === this.charArray.length) {
                 this.stop();
-                return; // vopros!!
+                return;
             }
             }
             
