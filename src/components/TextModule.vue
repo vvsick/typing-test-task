@@ -111,7 +111,7 @@ export default {
             this.text = await this.get();
             this.charArray = this.stringToArray();
             this.$refs.editor.innerHTML = "";
-            this.charArray.forEach((item) => this.$refs.editor.append(item.span)); //chararray = items
+            this.charArray.forEach((item) => this.$refs.editor.append(item.span));
             this.addActive();
             this.initListener();
         }
